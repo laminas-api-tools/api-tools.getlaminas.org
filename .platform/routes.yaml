@@ -1,0 +1,8 @@
+"https://{default}/":
+  type: upstream
+  upstream: 'api_tools_getlaminas_org:http'
+  tls:
+    strict_transport_security:
+      enabled: true
+      include_subdomains: true
+      preload: true
