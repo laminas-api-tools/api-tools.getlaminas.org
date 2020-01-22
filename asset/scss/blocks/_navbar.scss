@@ -58,4 +58,8 @@
             text-decoration: none;
         }
     }
+
+    .nav-item.active {
+        font-weight: bold;
+    }
 }

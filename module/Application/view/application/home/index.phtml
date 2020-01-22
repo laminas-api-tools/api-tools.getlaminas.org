@@ -1,132 +1,98 @@
-
-<section class="intro">
-    <div class="grid">
-        <div class="unit whole center-on-mobiles">
-            <p class="first">The world's easiest way to create high-quality APIs</p>
-        </div>
+<section class="intro row">
+    <div class="jumbotron bg-api-tools">
+        <h1 class="text-white">The world's easiest way to create high-quality APIs</h1>
     </div>
 </section>
 
-<section class="features">
-    <div class="grid">
-        <div class="unit one-third">
-            <h2>Be API-centric</h2>
+<section class="features row card-deck">
+    <div class="card"><div class="card-body">
+        <h2 class="card-title">Be API-centric</h2>
 
-            <p>
-                Separating presentation logic from data provides the flexibility
-                to support multiple client form factors, and future-proofs apps to
-                allow behind-the-scenes change without breaking user interfaces.
-                With Apigility, you can take the code that powers your business, and
-                then API-enable it.
-            </p>
-        </div>
+        <p class="card-text">
+            Separating presentation logic from data provides the flexibility
+            to support multiple client form factors, and future-proofs apps to
+            allow behind-the-scenes change without breaking user interfaces.
+            With Laminas API Tools, you can take the code that powers your
+            business, and then API-enable it.
+        </p>
+    </div></div>
 
-        <div class="unit one-third">
-            <h2>Think mobile</h2>
+    <div class="card"><div class="card-body">
+        <h2 class="card-title">Think mobile</h2>
 
-            <p>
-                An API-based architecture is essential to agile delivery of mobile
-                applications. Apigility provides JSON representations that can be
-                parsed and used in any mobile framework; write for the web or native
-                applications simultaneously!
-            </p>
-        </div>
+        <p class="card-text">
+            An API-based architecture is essential to agile delivery of mobile
+            applications. Laminas API Tools provides JSON representations that can be
+            parsed and used in any mobile framework; write for the web or native
+            applications simultaneously!
+        </p>
+    </div></div>
 
-        <div class="unit one-third">
-            <h2>Download</h2>
+    <div class="card"><div class="card-body">
+        <h2 class="card-title">Continuing Apigility's Legacy</h2>
 
-            <p>Download Apigility <strong><?= $this->version ?></strong></p>
-
-            <p>
-                <a href="<?= $this->url('download') ?>">
-                    <img src="img/download.png" alt="Download" title="Download" class="responsive">
-                </a>
-            </p>
-
-            <p>
-                or install in your terminal without download, as documented below
-                or in the <a href="<?= $this->url('documentation') ?>/intro/installation">installation
-                documentation page</a>.
-            </p>
-        </div>
-
-        <div class="clear"></div>
-    </div>
+        <p class="card-text">
+            Laminas API Tools is the open source continuation of Apigility.
+        </p>
+    </div></div>
 </section>
 
-<section class="quickstart">
-    <div class="grid">
-        <div class="unit golden-small center-on-mobiles">
-            <h4>
-                Startup <em>in&nbsp;seconds</em>
-            </h4>
-        </div>
-
-        <div class="unit golden-large code">
-            <p class="title">Quick-start in your terminal</p>
-
-            <?php // @codingStandardsIgnoreStart ?>
-            <div class="shell">
-                <p class="line">
-                    <span class="prompt">$</span> <span class="command">curl -sS https://apigility.org/install | php</span>
-                </p>
-
-                <p class="line">
-                    <span class="output"># or if you do not have <a href="http://curl.haxx.se/">curl</a> installed</span>
-                </p>
-
-                <p class="line">
-                    <span class="prompt">$</span> <span class="command">php -r "readfile('https://apigility.org/install');" | php</span>
-                </p>
-
-                <p class="line">
-                    <span class="output"># open your browser to <a href="http://localhost:8080">http://localhost:8080</a></span>
-                </p>
-            </div>
-            <?php // @codingStandardsIgnoreEnd ?>
-        </div>
-
-        <div class="clear"></div>
+<section class="quickstart row mt-5 jumbotron bg-dark">
+    <div class="col">
+        <h4 class="text-white">
+            Startup <em>in&nbsp;seconds</em>
+        </h4>
     </div>
+
+    <div class="col-8 card bg-dark"><div class="card-body">
+        <pre><code class="language-bash">
+$ composer create-project laminas-api-tools/api-tools-skeleton
+        </code></pre>
+    </div></div>
 </section>
 
-<section class="platforms">
-    <div class="grid">
-        <div class="unit half">
-            <p>
-                Want an overview of the Apigility features?
-                <br />
-                Watch this video or <a href="<?= $this->url('video') ?>">others here</a>
-            </p>
-
-            <div class="media-wrapper">
+<section class="platforms row card-deck">
+    <div class="card">
+        <div class="card-body">
+            <div class="embed-responsive embed-responsive-16by9">
                 <iframe
-                     width="560" height="315" frameborder="0" allowfullscreen
-                     src="https://www.youtube.com/embed/ZBSX1AB6LcM"></iframe>
+                    class="embed-responsive-item"
+                    allowfullscreen
+                    src="https://www.youtube.com/embed/ZBSX1AB6LcM"></iframe>
             </div>
-        </div>
-
-        <div class="unit half">
-            <h2>Apigility key features</h2>
-
-            <p>
-                RESTful or RPC services; JSON (specifically,
-                <a href="http://tools.ietf.org/html/draft-kelly-json-hal-08">HAL</a>);
-                <a href="https://tools.ietf.org/html/rfc7807">Problem Details for HTTP APIs</a>;
-                Versioning; Normalisation and Validation; Authentication (HTTP Basic/Digest, OAuth2);
-                Documentation (HTML, Swagger, API Blueprint).
+            <p class="card-text">
+                Want an overview of Laminas API Tools features?
+                <br />
+                Watch the video above, or <a href="<?= $this->url('video') ?>">others here</a>
             </p>
 
-            <p><a href="<?= $this->url('documentation') ?>">Discover more</a> &gt;</p>
-
-            <br />
-
-            <h2>Apigility runs everywhere</h2>
-
-            <p><img src="img/platforms.png"
-                    alt="PHP, Mac, Windows, GNU/Linux"
-                    title="PHP, Mac, Windows, GNU/Linux"
-                    class="responsive"></p>
+            <p class="card-text"><em>
+                The above video references Apigility, the predecessor to Laminas
+                API Tools. While some details differ, particularly around class names, the
+                overall workflow remains the same.
+            </em></p>
         </div>
     </div>
+
+    <div class="card"><div class="card-body">
+        <h2 class="card-title">Key features</h2>
+
+        <p class="card-text">
+            RESTful or RPC services; JSON (specifically,
+            <a href="http://tools.ietf.org/html/draft-kelly-json-hal-08">HAL</a>);
+            <a href="https://tools.ietf.org/html/rfc7807">Problem Details for HTTP APIs</a>;
+            Versioning; Normalisation and Validation; Authentication (HTTP Basic/Digest, OAuth2);
+            Documentation (HTML, Swagger, API Blueprint).
+        </p>
+
+        <p class="card-text"><a href="<?= $this->url('documentation') ?>">Discover more</a> &gt;</p>
+
+        <h2 class="card-title">Runs everywhere</h2>
+
+        <p class="card-text"><img
+            src="img/platforms.png"
+            alt="PHP, Mac, Windows, GNU/Linux"
+            title="PHP, Mac, Windows, GNU/Linux"
+            class="responsive"></p>
+    </div></div>
 </section>
