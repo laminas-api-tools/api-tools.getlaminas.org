@@ -1,10 +1,11 @@
 <?= $this->doctype(); ?>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <?= $this->headTitle('Apigility')->setSeparator(' - ')->setAutoEscape(false) ?>
+    <meta charset="utf-8">
+    <?= $this->headTitle('Laminas API Tools')->setSeparator(' - ')->setAutoEscape(false) ?>
     <?= $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendName('description', 'Laminas API Tools: Quickly build and deploy high quality APIs')
             ->appendHttpEquiv('X-UA-Compatible', 'IE=edge') ?>
 
     <?= $this
@@ -13,78 +14,133 @@
                 'type' => 'image/vnd.microsoft.icon',
                 'href' => $this->basePath() . '/img/favicon.ico'
             ])
-            ->appendStylesheet($this->basePath() . '/' . $this->asset('css/styles.css'))
-            ->appendStylesheet('https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css')
+            ->appendStylesheet($this->basePath('/') . 'css/styles.min.css')
     ?>
 
     <?php
         $this->inlineScript()
-            ->prependFile($this->basePath('/') . $this->asset('js/scripts.js'))
-            ->prependFile('https://cdn.jsdelivr.net/npm/jquery@2.2.4/dist/jquery.min.js');
+            ->prependFile($this->basePath('/') . 'js/scripts.min.js')
     ?>
 </head>
-<body class="wrap">
-    <div id="laminasBanner">Zend Framework transitions to the Linux Foundation. <a href="https://getlaminas.org">Learn More.</a></div>
-    <header>
-        <nav class="mobile-nav only-on-mobiles">
-            <?= $this->navigation('navigation')->menu()->setPartial('layout/menu'); ?>
-        </nav>
+<body id="page-top" class="api-tools">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="logo-link navbar-brand" href="https://getlaminas.org/" data-tooltip data-placement="bottom" title="Go to the Laminas homepage">
+                <img src="/img/laminas-foundation-white.svg" height="28" alt="Laminas">
+            </a>
+            <a class="navbar-title" href="/" data-tooltip data-placement="bottom" title="Go to the Laminas API Tools home page">API Tools</a>
 
-        <div class="grid">
-            <div class="brand unit one-third center-on-mobiles">
-                <h1>
-                    <a href="<?= $this->url('home') ?>"> 
-                    <span>Apigility</span> 
-                    <img src="<?= $this->basePath('/img/ag-hero.png') ?>" alt="Apigility" class="responsive"></a>
-                </h1>
+            <button type="button"
+                    class="navbar-toggler"
+                    data-toggle="collapse"
+                    data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                                All Docs
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="https://docs.laminas.dev/components">Components</a>
+                                <a class="dropdown-item" href="https://docs.mezzio.dev/">Mezzio</a>
+                                <a class="dropdown-item" href="https://api-tools.getlaminas.org/">API Tools</a>
+                                <a class="dropdown-item" href="https://docs.laminas.dev/mvc">MVC</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://getlaminas.org/participate" class="nav-link">Community</a>
+                    </li>
+                </ul>
             </div>
+        </div>
+    </nav>
 
-            <nav class="main-nav unit two-thirds hide-on-mobiles">
-                <?= $this->navigation('navigation')->menu()->setPartial('layout/menu') ?>
-            </nav>
+    <header class="header navbar navbar-expand-lg">
+        <div class="container">
+            <h1 class="header__title">API Tools</h1>
+
+            <button type="button"
+                    class="navbar-toggler subnav-control"
+                    data-toggle="collapse"
+                    data-target="#subnavContent"
+                    aria-controls="subnavContent"
+                    aria-expanded="false"
+                    aria-label="Toggle subnavigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="subnavContent">
+                <?= $this->navigation('navigation')->menu()->setPartial('layout/menu'); ?>
+            </div>
         </div>
     </header>
 
+    <div class="container">
     <?= $this->content ?>
+    </div>
 
-    <footer>
-        <div class="grid">
-            <div class="unit half center-on-mobiles">
-                <p>
-                    &copy; 2013 &mdash; <?= date('Y') ?> by <a href="https://www.zend.com">Zend</a>,
-                    a <a href="http://www.roguewave.com/">Rogue Wave Company</a>.
-                    <br>All rights reserved.
-                </p>
-
-                <p>
-                    <a href="https://discourse.zendframework.com" class="btn-social" title="Forum"><i class="fa fa-comments"></i></a>
-                    <a href="https://zendframework-slack.herokuapp.com" class="btn-social" title="Slack"><i class="fa fa-slack"></i></a>
-                    <a href="https://github.com/zfcampus" class="btn-social" title="Github"><i class="fa fa-github"></i></a>
-                    <a href="https://twitter.com/apigility" class="btn-social" title="Twitter"><i class="fa fa-twitter"></i></a>
-                    <a href="https://tinyletter.com/mwopzend" class="btn-social" title="Newsletter"><i class="fa fa-envelope"></i></a>
-                </p>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a class="footer__button" href="#page-top"><i class="fa fa-chevron-up" aria-hidden="true"></i></a>
+                </div>
             </div>
 
-            <div class="unit half align-right center-on-mobiles">
-                <p>
-                    Proudly built with
-                    <a href="https://framework.zend.com"><img src="<?= $this->basePath('/img/zf.png') ?>"></a>
-                </p>
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Laminas</h5>
+                    <ul>
+                        <li>Laminas Project <a href="https://getlaminas.org/">Components and MVC for Enterprise Applications</a></li>
+                        <li>Mezzio <a href="https://docs.mezzio.dev/">PSR-15 Middleware in Minutes</a></li>
+                        <li>Laminas API Tools: <a href="https://api-tools.getlaminas.org/">Build RESTful APIs in minutes</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="footer__headline">Support</h4>
+                    <ul class="support__list">
+                        <li class="support__list-item">
+                            <a href="https://discourse.laminas.dev" class="support__link" title="Forum"><i class="fa fa-comments"></i></a>
+                        </li>
+                        <li class="support__list-item">
+                            <a href="https://laminas.dev/chat" class="support__link" title="Chat"><i class="fa fa-slack"></i></a>
+                        </li>
+                        <li class="support__list-item">
+                            <a href="https://github.com/laminas" class="support__link" title="Github"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li class="support__list-item">
+                            <a href="https://twitter.com/getlaminas" class="support__link" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li class="support__list-item">
+                            <a href="https://getlaminas.org/blog/feed-rss.xml" class="support__link" title="Blog feed"><i class="fa fa-rss"></i></a>
+                        </li>
+                        <li class="support__list-item">
+                            <a href="https://getlaminas.org/security/feed" class="support__link" title="Security feed"><i class="fa fa-rss-square"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h4 class="footer__headline">Copyright</h4>
+                    <p>
+                        &copy; 2020 by <a href="https://getlaminas.org/">The Laminas Project</a>.
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
 
     <?= $this->inlineScript() ?>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-     
-      ga('create', 'UA-49458222-1', 'apigility.org');
-      ga('send', 'pageview');
-    </script>
-    <script src="//my.hellobar.com/73115e27ed23189136215b755a6ce835623e014d.js" type="text/javascript" charset="utf-8" async="async"></script>
 </body>
 </html>

@@ -3,6 +3,11 @@
     margin-bottom: map_get($spacers, 5);
     padding: map_get($spacers, 3) 0;
 
+    @include media-breakpoint-down(sm) {
+        padding-left: map_get($spacers, 3);
+        padding-right: map_get($spacers, 3);
+    }
+
     &__title {
         font-size: 30px;
         font-weight: 300;

@@ -53,9 +53,9 @@ gulp.task('js', function () {
 
     return gulp.src(prismComponents.concat([
             'node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js',
-            'node_modules/bootstrap/dist/js/bootstrap.js',
-            'node_modules/popper.js/dist/popper.js',
-            'node_modules/jquery/dist/jquery.js'
+            'node_modules/jquery/dist/jquery.js',
+            'node_modules/popper.js/dist/umd/popper.js',
+            'node_modules/bootstrap/dist/js/bootstrap.js'
         ]))
         .pipe(babel({presets: ['@babel/env'], sourceType: 'unambiguous'}))
         .pipe(concat({path: 'scripts.js'}))
@@ -82,4 +82,10 @@ gulp.task('css', function () {
         .pipe(gulp.dest('../public/css/'));
 });
 
-gulp.task('default', gulp.series('css', 'js'));
+gulp.task('fonts', function () {
+    return gulp
+        .src('node_modules/font-awesome/fonts/*.*')
+        .pipe(gulp.dest('../public/css/fonts/'));
+});
+
+gulp.task('default', gulp.series('css', 'fonts', 'js'));
