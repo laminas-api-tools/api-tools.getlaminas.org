@@ -5,6 +5,4 @@ config/development.config.php
 data/releases.json
 log/*
 !log/.gitkeep
-public/css/*
-public/js/*
 vendor/

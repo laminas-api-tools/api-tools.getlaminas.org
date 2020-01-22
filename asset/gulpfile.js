@@ -1,13 +1,14 @@
-require('es6-promise').polyfill();
-
-var gulp = require('gulp'),
-    cssimport = require('gulp-cssimport'),
-    sass = require('gulp-sass'),
+var autoprefixer = require('autoprefixer'),
+    babel = require('gulp-babel'),
+    cleanCss = require('gulp-clean-css'),
     concat = require('gulp-concat'),
+    gulp = require('gulp'),
+    postcss = require('gulp-postcss'),
+    rename = require('gulp-rename'),
+    sass = require('gulp-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
+    terser = require('gulp-terser'),
     uglify = require('gulp-uglify'),
-    rev = require('gulp-rev'),
-    revDel = require('rev-del'),
-    revOriginDel = require('gulp-rev-delete-original'),
     prism = [
         'core',
         'markup',
@@ -31,7 +32,7 @@ var gulp = require('gulp'),
         'markdown',
         'nginx',
         'php',
-        'php-extrasx',
+        'php-extras',
         'powershell',
         'puppet',
         'rest',
@@ -44,7 +45,7 @@ var gulp = require('gulp'),
         'yaml'
     ];
 
-gulp.task('scripts', function () {
+gulp.task('js', function () {
     var prismComponents = [];
     for (var component in prism) {
         prismComponents[component] = 'node_modules/prismjs/components/prism-' + prism[component] + '.js';
@@ -52,37 +53,33 @@ gulp.task('scripts', function () {
 
     return gulp.src(prismComponents.concat([
             'node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js',
-            'node_modules/anchor-js/anchor.js',
-            'js/manual-toc.js',
-            'js/scripts.js'
+            'node_modules/bootstrap/dist/js/bootstrap.js',
+            'node_modules/popper.js/dist/popper.js',
+            'node_modules/jquery/dist/jquery.js'
         ]))
+        .pipe(babel({presets: ['@babel/env'], sourceType: 'unambiguous'}))
         .pipe(concat({path: 'scripts.js'}))
+        .pipe(gulp.dest('../public/js/'))
+        .pipe(terser({mangle: false}).on('error', function (e) {
+            console.log(e);
+        }))
         .pipe(uglify({mangle: false}))
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('../public/js/'));
 });
 
-gulp.task('styles', function () {
-    return gulp.src('sass/styles.scss')
-        .pipe(cssimport({filter: /^..\/node_modules\//gi}))
-        .pipe(sass({outputStyle: 'compressed'}))
+gulp.task('css', function () {
+    return gulp
+        .src('scss/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .on('error', sass.logError)
+        .pipe(postcss([autoprefixer()]))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest('../public/css/'))
+        .pipe(cleanCss())
+        .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest('../public/css/'));
 });
 
-gulp.task('revision', ['styles', 'scripts'], function () {
-    gulp.src([
-            '../public/css/styles.css',
-            '../public/js/scripts.js'
-        ], {base: '../public'})
-        .pipe(rev())
-        .pipe(revOriginDel())
-        .pipe(gulp.dest('../public/'))
-        .pipe(rev.manifest())
-        .pipe(revDel({
-            oldManifest: 'rev-manifest.json',
-            dest: '../public/',
-            force: true
-        }))
-        .pipe(gulp.dest('./'));
-});
-
-gulp.task('default', ['revision']);
+gulp.task('default', gulp.series('css', 'js'));
