@@ -12,19 +12,6 @@ return [
                     ],
                 ],
             ],
-            'install' => [
-                'type' => 'segment',
-                'options' => [
-                    'route'    => '/install[/:version]',
-                    'defaults' => [
-                        'controller' => 'Application\Controller\Home',
-                        'action'     => 'install'
-                    ],
-                    'constraints' => [
-                        'version' => '[0-9]+\.[0-9]+\.[0-9]+'
-                    ],
-                ],
-            ],
             'video' => [
                 'type' => 'literal',
                 'options' => [

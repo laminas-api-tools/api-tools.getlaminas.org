@@ -12,12 +12,4 @@
  */
 
 return [
-    'apigility' => [
-        'version' => '1.5.1'
-    ],
-    'links' => [
-        'zip' => 'https://github.com/zfcampus/zf-apigility-skeleton/releases/download/1.5.1/zf-apigility-skeleton-1.5.1.zip',
-        'tgz' => 'https://github.com/zfcampus/zf-apigility-skeleton/releases/download/1.5.1/zf-apigility-skeleton-1.5.1.tgz',
-        'forkme' => 'https://github.com/zfcampus'
-    ]
 ];
