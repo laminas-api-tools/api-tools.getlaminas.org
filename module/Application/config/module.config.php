@@ -114,6 +114,10 @@ return [
                         'label' => 'Release note',
                         'route' => 'download/note',
                     ],
+                    [
+                        'label' => 'Release note for release version',
+                        'route' => 'download/note/for-release',
+                    ],
                 ],
              ],
              [
