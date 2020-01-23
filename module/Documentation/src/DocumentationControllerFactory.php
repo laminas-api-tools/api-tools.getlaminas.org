@@ -6,7 +6,7 @@
 
 namespace Documentation;
 
-use Zend\ServiceManager\AbstractPluginManager;
+use Laminas\ServiceManager\AbstractPluginManager;
 
 class DocumentationControllerFactory
 {

@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-use Zend\Console\Exception\RuntimeException;
-use Zend\Console\Getopt;
-use Zend\View\Model\ViewModel;
-use Zend\View\Renderer\PhpRenderer;
-use Zend\View\Resolver;
+use Laminas\Console\Exception\RuntimeException;
+use Laminas\Console\Getopt;
+use Laminas\View\Model\ViewModel;
+use Laminas\View\Renderer\PhpRenderer;
+use Laminas\View\Resolver;
 
 chdir(__DIR__ . '/../');
 require_once 'vendor/autoload.php';

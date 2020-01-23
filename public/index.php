@@ -13,9 +13,9 @@ require __DIR__ . '/../vendor/autoload.php';
 (function () {
     $appConfig = require __DIR__ . '/../config/application.config.php';
     if (file_exists(__DIR__ . '/../config/development.config.php')) {
-        $appConfig = \Zend\Stdlib\ArrayUtils::merge($appConfig, require __DIR__ . '/../config/development.config.php');
+        $appConfig = \Laminas\Stdlib\ArrayUtils::merge($appConfig, require __DIR__ . '/../config/development.config.php');
     }
 
     // Run the application!
-    \Zend\Mvc\Application::init($appConfig)->run();
+    \Laminas\Mvc\Application::init($appConfig)->run();
 })();

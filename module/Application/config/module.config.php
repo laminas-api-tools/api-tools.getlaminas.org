@@ -118,7 +118,7 @@ return [
             'translator' => 'MvcTranslator',
         ],
         'factories' => [
-            'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
+            'navigation' => 'Laminas\Navigation\Service\DefaultNavigationFactory',
         ],
     ],
     'controllers' => [

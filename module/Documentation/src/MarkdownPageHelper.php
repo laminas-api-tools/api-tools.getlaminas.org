@@ -11,10 +11,10 @@ use League\CommonMark\DocParser;
 use League\CommonMark\Environment;
 use League\CommonMark\HtmlRenderer;
 use Webuni\CommonMark\TableExtension\TableExtension;
-use Zend\Filter\FilterChain;
-use Zend\View\Helper\HelperInterface;
-use Zend\View\Helper\Url as UrlHelper;
-use Zend\View\Renderer\RendererInterface;
+use Laminas\Filter\FilterChain;
+use Laminas\View\Helper\HelperInterface;
+use Laminas\View\Helper\Url as UrlHelper;
+use Laminas\View\Renderer\RendererInterface;
 
 class MarkdownPageHelper implements HelperInterface
 {

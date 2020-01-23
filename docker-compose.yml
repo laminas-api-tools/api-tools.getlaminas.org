@@ -20,4 +20,4 @@ services:
   source:
     image: busybox
     volumes:
-      - .:/var/vhosts/apigility.org
+      - .:/var/vhosts/api-tools.getlaminas.org

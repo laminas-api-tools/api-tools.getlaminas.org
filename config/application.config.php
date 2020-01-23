@@ -2,10 +2,10 @@
 return [
     // This should be an array of module namespaces used in the application.
     'modules' => [
-        'Zend\Filter',
-        'Zend\Navigation',
-        'Zend\Router',
-        'Zend\Validator',
+        'Laminas\Filter',
+        'Laminas\Navigation',
+        'Laminas\Router',
+        'Laminas\Validator',
         'Application',
         'ApiToolsDocumentation',
         'AssetManager',
@@ -66,6 +66,6 @@ return [
     // ],
 
     // Initial configuration with which to seed the ServiceManager.
-    // Should be compatible with Zend\ServiceManager\Config.
+    // Should be compatible with Laminas\ServiceManager\Config.
     // 'service_manager' => [],
 ];

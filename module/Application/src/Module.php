@@ -7,8 +7,8 @@
 
 namespace Application;
 
-use Zend\Mvc\MvcEvent;
-use Zend\ServiceManager\AbstractPluginManager;
+use Laminas\Mvc\MvcEvent;
+use Laminas\ServiceManager\AbstractPluginManager;
 
 class Module
 {
