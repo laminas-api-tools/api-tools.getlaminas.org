@@ -28,11 +28,11 @@ class Module
     public function getServiceConfig()
     {
         return ['factories' => [
-            'Application\GithubReleases' => function ($services) {
+            GithubReleases::class => function () {
                 $releases = [];
                 if (file_exists('data/releases.json')) {
                     $json     = file_get_contents('data/releases.json');
-                    $releases = json_decode($json);
+                    $releases = json_decode($json, true);
                 }
                 return new GithubReleases($releases);
             },
@@ -46,10 +46,12 @@ class Module
                 if ($services instanceof AbstractPluginManager) {
                     $services = $services->getServiceLocator() ?: $services;
                 }
-                return new Controller\DownloadController(
-                    $services->get('Application\GithubReleases'),
-                    $services->get('config')
+
+                $controller = new Controller\DownloadController(
+                    $services->get(GithubReleases::class)
                 );
+
+                return $controller;
             },
             'Application\Controller\Home' => function ($services) {
                 if ($services instanceof AbstractPluginManager) {

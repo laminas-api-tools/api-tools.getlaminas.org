@@ -15,7 +15,7 @@ class GithubReleases implements Countable, IteratorAggregate
     /**
      * @var array
      */
-    protected $releases;
+    protected $releases = [];
 
     /**
      * @param array $releases
@@ -33,6 +33,19 @@ class GithubReleases implements Countable, IteratorAggregate
     public function count()
     {
         return count($this->releases);
+    }
+
+    public function current() : ?array
+    {
+        error_log(sprintf('In %s', __METHOD__));
+        if (0 === count($this)) {
+            error_log('- No items found; returning null');
+            return null;
+        }
+
+        $iterator = $this->getIterator();
+        $iterator->rewind();
+        return $iterator->current();
     }
 
     /**
@@ -53,28 +66,8 @@ class GithubReleases implements Countable, IteratorAggregate
      */
     protected function parseReleases(array $releases)
     {
-        $parsed = [];
-        foreach ($releases as $release) {
-            if (! is_object($release)) {
-                continue;
-            }
-            if (! isset($release->tag_name)
-                || ! isset($release->html_url)
-            ) {
-                continue;
-            }
-
-            $parsed[] = [
-                'tag'   => $release->tag_name,
-                'url'   => $release->html_url,
-                'notes' => (isset($release->body) && ! empty($release->body))
-                    ? $release->body
-                    : 'No changelog available',
-            ];
-        }
-
-        usort($parsed, function ($a, $b) {
-            $compare = version_compare($a['tag'], $b['tag']);
+        usort($releases, function ($a, $b) {
+            $compare = version_compare($a['name'], $b['name']);
             if ($compare === -1) {
                 return 1;
             }
@@ -84,6 +77,6 @@ class GithubReleases implements Countable, IteratorAggregate
             return 0;
         });
 
-        return $parsed;
+        return $releases;
     }
 }

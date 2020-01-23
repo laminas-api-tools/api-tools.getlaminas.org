@@ -1,23 +1,13 @@
 <?php $parser = new \League\CommonMark\CommonMarkConverter() ?>
-<section class="docs">
-    <div class="grid" style="margin-top:30px">
-        <div class="unit four-fifths">
-            <article>
-                <div class="post-content">
-                    <h1><?= $this->version ?> Changelog</h1>
+<section class="docs row flex-xl-nowrap">
+    <?= $this->partial('layout/aside', [
+        'aside'   => $this->aside,
+        'current' => $this->current,
+    ]) ?>
 
-                    <?= $parser->convertToHtml($this->changelog) ?>
-                </div>
-            </article>
-        </div>
+    <article class="col-md-9 col-xl-8 py-md-3 pl-md-5">
+        <h1><?= $this->version ?> Changelog</h1>
 
-        <div class="unit one-fifth hide-on-mobiles">
-            <?= $this->partial('layout/aside', [
-                'aside'   => $this->aside,
-                'current' => $this->current,
-            ]) ?>
-        </div>
-
-        <div class="clear"></div>
-    </div>
+        <?= $parser->convertToHtml($this->changelog) ?>
+    </article>
 </section>

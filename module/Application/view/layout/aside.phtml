@@ -1,16 +1,15 @@
-<aside>
+<aside class="d-none d-xl-block col-xl-2 order-2 mt-5" aria-label="Secondary navigation">
 <?php foreach ($this->aside as $key => $value) : ?>
     <?php if (! empty($key)) : ?>
-        <h4><?= $key ?></h4>
+    <h4 class="pt-4"><?= $key ?></h4>
     <?php endif ?>
-    <ul>
+    <ul class="nav flex-column">
     <?php foreach ($value as $name => $link) : ?>
         <?php if ($link === $this->current) : ?>
-            <li class="current">
+        <li class="nav-item nav-link py-0 active"><strong><?= $name ?></strong></li>
         <?php else : ?>
-            <li>
+        <li class="nav-item"><a class="nav-link py-0" href="<?= $link ?>"><?= $name ?></a></li>
         <?php endif; ?>
-        <a href="<?= $link ?>"><?= $name ?></a></li>  
     <?php endforeach ?>
     </ul>
 <?php endforeach ?>

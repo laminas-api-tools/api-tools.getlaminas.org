@@ -55,6 +55,22 @@ return [
                                 'action'     => 'note',
                             ],
                         ],
+                        'may_terminate' => true,
+                        'child_routes' => [
+                            'for-release' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => '/[:release]',
+                                    'defaults' => [
+                                        'controller' => 'Application\Controller\Download',
+                                        'action'     => 'note'
+                                    ],
+                                    'constraints' => [
+                                        'release' => '[0-9]+\.[0-9]+\.[0-9]+'
+                                    ],
+                                ],
+                            ],
+                        ],
                     ],
                 ],
             ],

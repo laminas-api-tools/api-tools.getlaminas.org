@@ -16,19 +16,13 @@ use Zend\View\Model\ViewModel;
 class DownloadController extends AbstractActionController
 {
     /**
-     * @var array
-     */
-    private $config;
-
-    /**
      * @var GithubReleases
      */
     protected $releases;
 
-    public function __construct(GithubReleases $releases, array $config)
+    public function __construct(/*GithubReleases*/ $releases)
     {
         $this->releases = $releases;
-        $this->config = $config;
     }
 
     protected function getAside()
@@ -41,9 +35,9 @@ class DownloadController extends AbstractActionController
             'Previous Releases' => [],
         ];
         foreach ($this->releases as $release) {
-            $aside['Previous Releases'][$release['tag']] = $release['url'];
+            $aside['Previous Releases'][$release['name']] = $this->url()->fromRoute('download/note/for-release', ['release' => $release['name']]);
         }
-        $aside['Previous Releases']['All the releases'] = 'https://github.com/zfcampus/zf-apigility-skeleton/releases';
+        $aside['Previous Releases']['All releases'] = 'https://github.com/laminas-api-tools/api-tools-skeleton/releases';
         return $aside;
     }
 
@@ -52,27 +46,25 @@ class DownloadController extends AbstractActionController
         return new ViewModel([
             'aside'   => $this->getAside(),
             'current' => $this->url()->fromRoute('download'),
-            'version' => $this->config['apigility']['version'],
-            'tgz'     => $this->config['links']['tgz'],
-            'zip'     => $this->config['links']['zip']
+            'version' => $this->releases->current()['name'],
         ]);
     }
 
     public function noteAction()
     {
-        $version   = $this->config['apigility']['version'];
+        $version   = $this->params()->fromRoute('release', $this->releases->current()['name']);
         $changelog = 'No changelog found';
 
         foreach ($this->releases as $release) {
-            if ($release['tag'] === $version) {
-                $changelog = $release['notes'];
+            if ($release['name'] === $version) {
+                $changelog = $release['changelog'];
                 break;
             }
         }
 
         return new ViewModel([
             'aside'     => $this->getAside(),
-            'current'   => $this->url()->fromRoute('download/note'),
+            'current'   => $this->url()->fromRoute('download/note/for-release', ['release' => $version]),
             'version'   => $version,
             'changelog' => $changelog,
         ]);
