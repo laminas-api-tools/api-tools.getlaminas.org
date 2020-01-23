@@ -20,9 +20,9 @@ class DocumentationModelFactory
 
     protected function getConfigViaService(array $config, $allConfig)
     {
-        if (! isset($allConfig['apigility-documentation'])) {
+        if (! isset($allConfig['api-tools-documentation'])) {
             return $config;
         }
-        return $allConfig['apigility-documentation'];
+        return $allConfig['api-tools-documentation'];
     }
 }

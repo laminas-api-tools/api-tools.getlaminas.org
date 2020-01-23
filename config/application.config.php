@@ -7,7 +7,7 @@ return [
         'Zend\Router',
         'Zend\Validator',
         'Application',
-        'ApigilityDocumentation',
+        'ApiToolsDocumentation',
         'AssetManager',
         'Documentation',
     ],

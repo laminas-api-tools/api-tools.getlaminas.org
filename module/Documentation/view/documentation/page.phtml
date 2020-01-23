@@ -1,18 +1,10 @@
-<section class="manual">
-    <div class="grid" style="margin-top:30px">
-        <div class="unit four-fifths">
-            <article>
-                <div class="post-content">
-                <?= $this->markdownpage($this->page, $this->model) ?>
-                </div>
-            </article>    
-        </div>
+<section class="manual row flex-xl-nowrap">
+    <?= $this->partial('documentation/toc', [
+        'model'   => $this->model,
+        'current' => $this->page,
+    ]) ?>
 
-        <div class="unit one-fifth">
-            <?= $this->partial('documentation/toc', [
-                'model'   => $this->model,
-                'current' => $this->page,
-            ]) ?>
-        </div>
-    </div>
+    <article class="col-md-10 col-xl-9 py-md-3 pl-md-5">
+        <?= $this->markdownpage($this->page, $this->model) ?>
+    </article>    
 </section>

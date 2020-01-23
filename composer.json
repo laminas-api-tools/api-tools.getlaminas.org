@@ -19,7 +19,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/zfcampus/apigility-documentation.git"
+            "url": "https://github.com/laminas-api-tools/documentation.git"
         }
     ],
     "require": {
@@ -30,7 +30,7 @@
         "zendframework/zend-filter": "^2.7.2",
         "zendframework/zend-mvc": "^3.1",
         "zendframework/zend-navigation": "^2.8.2",
-        "zfcampus/apigility-documentation": "dev-master"
+        "laminas-api-tools/documentation": "dev-master"
     },
     "require-dev": {
         "google/apiclient": "^2.2",
@@ -46,7 +46,7 @@
     },
     "scripts": {
         "build": [
-            "composer update zfcampus/apigility-documentation",
+            "composer update laminas-api-tools/documentation",
             "@php ./bin/get-releases.php",
             "cd asset && npm install --no-save && gulp && rm -Rf node_modules",
             "rm -f data/cache/module-classmap-cache.php",

@@ -1,52 +1,44 @@
-<section class="docs">
-	<div class="grid" style="margin-top:30px">
-		<div class="unit four-fifths">
-			<article>
-				<div class="post-content">
-					<h1>Welcome</h1>
+<section class="manual row flex-xl-nowrap">
+    <?= $this->partial('documentation/toc', [
+        'model'   => $this->model,
+        'current' => $this->page,
+    ]) ?>
 
-					<p>This is the official documentation site for Apigility.</p>
+    <article class="col-md-10 col-xl-9 py-md-3 pl-md-5">
+        <h1>Welcome</h1>
 
-					<h2>What is Apigility?</h2>
+        <p>This is the official documentation site for Apigility.</p>
 
-                    <p>
-                        Creating APIs for your applications shouldn't be hard.
-                    </p>
+        <h2>What is Apigility?</h2>
 
-                    <p>
-                        Apigility is an API Builder, designed to simplify creating
-                        and maintaining useful, easy to consume, and well
-                        structured APIs. Regardless of your experience in API
-                        building, with Apigility you can build APIs that enable
-                        mobile apps, developer communities, and any other consumer
-                        controlled access to your applications.
-                    </p>
+        <p>
+            Creating APIs for your applications shouldn't be hard.
+        </p>
 
-					<h2>Apigility and Zend Framework 2</h2>
+        <p>
+            Apigility is an API Builder, designed to simplify creating
+            and maintaining useful, easy to consume, and well
+            structured APIs. Regardless of your experience in API
+            building, with Apigility you can build APIs that enable
+            mobile apps, developer communities, and any other consumer
+            controlled access to your applications.
+        </p>
 
-                    <p>
-                        Apigility can be used to implement APIs in 
-                        <a href="http://www.php.net">PHP</a>. We developed Apigility
-                        using <a href="http://framework.zend.com">Zend Framework 2</a>,
-                        but this doesn't mean you have to use this framework to develop
-                        your API. You can use Apigility in any PHP application, using
-                        all the libraries and frameworks that you want.
-                    </p>
+        <h2>Apigility and Zend Framework 2</h2>
 
-					<h2>System Requirements</h2>
+        <p>
+            Apigility can be used to implement APIs in 
+            <a href="http://www.php.net">PHP</a>. We developed Apigility
+            using <a href="http://framework.zend.com">Zend Framework 2</a>,
+            but this doesn't mean you have to use this framework to develop
+            your API. You can use Apigility in any PHP application, using
+            all the libraries and frameworks that you want.
+        </p>
 
-                    <p>
-                        To run Apigility you need PHP 5.6 or greater.
-                    </p>
-				</div>
-			</article>	
-		</div>
+        <h2>System Requirements</h2>
 
-		<div class="unit one-fifth">
-			<?= $this->partial('documentation/toc', [
-                'model'   => $this->model,
-                'current' => $this->page,
-            ]) ?>
-        </div>
-    </div>
+        <p>
+            To run Apigility you need PHP 5.6 or greater.
+        </p>
+    </article>	
 </section>

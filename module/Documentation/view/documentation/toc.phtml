@@ -1,10 +1,10 @@
-<aside class="toc">
 <?php
 $toc     = $this->markdownpage('TOC', $this->model, false);
 $baseUri = $this->url('documentation', [], false);
 $current = sprintf('%s/%s', $baseUri, $this->current);
-echo $toc;
 ?>
+<aside class="manual-toc d-none d-xl-block col-md-2 col-xl-3 order-2 mt-5" aria-label="Documentation table of contents">
+    <?= $toc ?>
 </aside>
 
 <?php $this->inlineScript()->captureStart(); ?>
