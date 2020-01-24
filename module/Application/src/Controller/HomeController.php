@@ -22,22 +22,6 @@ class HomeController extends AbstractActionController
 
     public function indexAction()
     {
-        return new ViewModel([
-            'version' => $this->config['apigility']['version'],
-            'zip'     => $this->config['links']['zip']
-        ]);
-    }
-
-    public function installAction()
-    {
-        $version = $this->params()->fromRoute('version');
-        if (empty($version)) {
-            $installer = file_get_contents(__DIR__ . '/../../../../bin/install.php');
-        } else {
-            $installer = file_get_contents(__DIR__ . '/../../../../bin/install.php.dist');
-            $installer = str_replace('%VERSION%', $version, $installer);
-        }
-
-        return $this->getResponse()->setContent($installer);
+        return new ViewModel([]);
     }
 }
