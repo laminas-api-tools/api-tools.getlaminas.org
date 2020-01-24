@@ -1,0 +1,46 @@
+<section class="manual row flex-xl-nowrap">
+    <?= $this->partial('documentation/toc', [
+        'model'   => $this->model,
+        'current' => $this->page,
+    ]) ?>
+
+    <article class="col-md-10 col-xl-9 py-md-3 pl-md-5">
+        <h1>Welcome</h1>
+
+        <p>This is the official documentation site for Laminas API Tools.</p>
+
+        <h2>What are the API Tools?</h2>
+
+        <p>
+            Creating APIs for your applications shouldn't be hard.
+        </p>
+
+        <p>
+            Laminas API Tools is an API Builder, designed to simplify creating
+            and maintaining useful, easy to consume, and well
+            structured APIs. Regardless of your experience in API
+            building, with the API Tools you can build APIs that enable
+            mobile apps, developer communities, and any other consumer
+            controlled access to your applications.
+        </p>
+
+        <h2>Laminas and Laminas API Tools</h2>
+
+        <p>
+            Lamians API Tools can be used to implement APIs in 
+            <a href="http://www.php.net">PHP</a>. We developed the API Tools
+            using <a href="https://docs.laminas.dev/mvc/">Laminas MVC</a>,
+            but this doesn't mean you have to use this framework to develop
+            your API. You can use the API Tools in any PHP application, using
+            all the libraries and frameworks that you want.
+        </p>
+
+        <h2>System Requirements</h2>
+
+        <p>
+            To run the API Tools you need PHP 5.6 or greater.
+        </p>
+    </article>	
+</section>
+
+<?= $this->partial('documentation/disclaimer') ?>

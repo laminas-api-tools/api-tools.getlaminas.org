@@ -1,0 +1,23 @@
+<?php
+use League\CommonMark\Converter;
+use League\CommonMark\DocParser;
+use League\CommonMark\Environment;
+use League\CommonMark\Ext\Table\TableExtension;
+use League\CommonMark\HtmlRenderer;
+
+$environment = Environment::createCommonMarkEnvironment();
+$environment->addExtension(new TableExtension());
+$parser = new Converter(new DocParser($environment), new HtmlRenderer($environment));
+?>
+<section class="docs row flex-xl-nowrap">
+    <?= $this->partial('layout/aside', [
+        'aside'   => $this->aside,
+        'current' => $this->current,
+    ]) ?>
+
+    <article class="col-md-10 col-xl-9 py-md-3 pl-md-5">
+        <h1><?= $this->version ?> Changelog</h1>
+
+        <?= $parser->convertToHtml($this->changelog) ?>
+    </article>
+</section>

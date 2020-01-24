@@ -1,0 +1,12 @@
+<section class="manual row flex-xl-nowrap">
+    <?= $this->partial('documentation/toc', [
+        'model'   => $this->model,
+        'current' => $this->page,
+    ]) ?>
+
+    <article class="col-md-10 col-xl-9 py-md-3 pl-md-5">
+        <?= $this->markdownpage($this->page, $this->model) ?>
+    </article>    
+</section>
+
+<?= $this->partial('documentation/disclaimer') ?>

@@ -1,0 +1,21 @@
+<section class="features">
+	<div class="grid" style="margin-top:30px">
+        <div class="whole">
+            <h1 id="pageTitle"><?= $this->mainVideo['title'] ?></h1>
+        </div>
+    </div>
+
+    <br clear="left">
+
+    <div class="grid" style="padding-left: 10px; margin-top: 20px;">
+        <div class="media-wrapper">
+            <iframe width="960" height="540"
+                    src="https://www.youtube.com/embed/<?= $this->mainVideo['id'] ?>"
+                    frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <br clear="left">
+
+    <?= $this->partialLoop('video/item', $this->videos); ?>
+</section>

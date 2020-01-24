@@ -1,0 +1,9 @@
+asset/node_modules/
+asset/npm-debug.log
+asset/rev-manifest.json
+config/autoload/releases.global.php
+config/development.config.php
+data/releases.json
+log/*
+!log/.gitkeep
+vendor/

@@ -1,0 +1,62 @@
+{
+    "name": "zfcampus/apigility.org",
+    "type": "project",
+    "description": "Apigility web site",
+    "keywords": [
+        "apigility",
+        "zf",
+        "api",
+        "zend framework"
+    ],
+    "homepage": "https://apigility.org",
+    "license": "BSD-3-Clause",
+    "config": {
+        "sort-packages": true,
+        "platform": {
+            "php": "7.2"
+        }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/laminas-api-tools/documentation.git"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "league/commonmark": "^1.2.2",
+        "rwoverdijk/assetmanager": "^1.7.3",
+        "league/commonmark-ext-table": "^2.1.0",
+        "laminas/laminas-filter": "^2.7.2",
+        "laminas/laminas-mvc": "^3.1",
+        "laminas/laminas-navigation": "^2.8.2",
+        "laminas-api-tools/documentation": "dev-master",
+        "laminas/laminas-dependency-plugin": "^1.0"
+    },
+    "require-dev": {
+        "google/apiclient": "^2.2",
+        "laminas/laminas-coding-standard": "~1.0.0",
+        "laminas/laminas-console": "^2.6",
+        "laminas/laminas-development-mode": "^3.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/",
+            "Documentation\\": "module/Documentation/src/"
+        }
+    },
+    "scripts": {
+        "build": [
+            "composer update laminas-api-tools/documentation",
+            "@php ./bin/get-releases.php",
+            "cd asset && npm install --no-save && gulp && rm -Rf node_modules",
+            "rm -f data/cache/module-classmap-cache.php",
+            "rm -f data/cache/module-config-cache.php"
+        ],
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "development-disable": "laminas-development-mode disable",
+        "development-enable": "laminas-development-mode enable",
+        "development-status": "laminas-development-mode status"
+    }
+}

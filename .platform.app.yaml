@@ -9,11 +9,37 @@ disk: 256
 build:
   flavor: none
 
+dependencies:
+  php:
+    "hirak/prestissimo": "^0.3.9"
+  nodejs:
+    gulp-cli: '~2.1.0'
+
+mounts:
+  'data/cache':
+    source: local
+    source_path: data/cache
+
 hooks:
   build: |
     set -e
     echo "Installing platform.sh CLI"
     curl -sS https://platform.sh/cli/installer | php
+    echo "- Installing asset dependencies"
+    (cd asset ; npm install --no-save)
+    echo "- Building assets"
+    (cd asset ; gulp default)
+    echo "- Removing asset dependencies"
+    (cd asset ; rm -rf node_modules)
+    echo "- Setting up configuration"
+    rm -f config/development.config.php config/autoload/*.local.php
+    mv config/autoload/local.php.dist config/autoload/local.php
+    echo "- Installing application dependencies"
+    composer install --no-ansi --no-dev --no-interaction --no-scripts --no-plugins --optimize-autoloader
+    composer update laminas-api-tools/documentation
+    php bin/get-releases.php
+  deploy: |
+    rm -f data/cache/module-*.php
 
 crons:
     snapshot:
@@ -35,8 +61,9 @@ web:
   locations:
     '/':
       root: 'public'
+      passthru: '/index.php'
       index:
-        - index.html
+        - index.php
       expires: -1
       scripts: true
       allow: false

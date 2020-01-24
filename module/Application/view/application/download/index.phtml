@@ -1,0 +1,63 @@
+<section class="docs row flex-xl-nowrap">
+    <?= $this->partial('layout/aside', [
+        'aside'   => $this->aside,
+        'current' => $this->current,
+    ]) ?>
+
+    <article class="col-md-10 col-xl-9 py-md-3 pl-md-5">
+        <h1>Install</h1>
+
+        <div class="card mb-5"><div class="card-body">
+            <h3 class="card-title">Via Composer</h3>
+
+            <pre><code class="language-bash">
+$ composer create-project laminas-api-tools/api-tools-skeleton
+            </code></pre>
+
+            <p class="card-text">
+                To install a specific version, add the version to the
+                package name when creating the project. For example, to
+                request specifically version 1.5.2:
+            </p>
+
+            <pre><code class="language-bash">
+$ composer create-project laminas-api-tools/api-tools-skeleton:1.5.2
+            </code></pre>
+        </div></div>
+
+        <div class="card"><div class="card-body">
+            <h3 class="card-title">Via Cloning</h3>
+
+            <pre><code class="language-bash">
+$ git clone https://githug.com/laminas-api-tools/api-tools-skeleton.git
+$ cd api-tools-skeleton
+$ composer install
+            </code></pre>
+
+            <p class="card-text">
+                Finally, enable development mode:
+            </p>
+
+            <pre><code class="language-bash">
+$ composer development-enable
+            </code></pre>
+        </div></div>
+
+        <h2>Get started with the web UI</h2>
+
+        <pre><code class="language-bash">$ php -S 0.0.0.0:8080 -t public public/index.php</code></pre>
+
+        <p>
+            At this point, you can open your browser to <a href="http://localhost:8080">http://localhost:8080</a>.
+        </p>
+
+        <blockquote class="blockquote">
+            <h5>Use any port</h5>
+
+            <p>
+                While the above command uses port <strong>8080</strong>,
+                you can substitute any available port on your system.
+            </p>
+        </blockquote>
+    </article>
+</section>
