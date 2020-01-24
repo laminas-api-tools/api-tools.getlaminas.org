@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2601e5a0cb25010751bc6e03c5cfe094",
+    "content-hash": "5df365d12cf06336d004957ae3753e37",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -1070,23 +1070,23 @@
         },
         {
             "name": "laminas/laminas-validator",
-            "version": "2.12.2",
+            "version": "2.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-validator.git",
-                "reference": "0813f234812d9fa9058b6da39eb13dedc90227db"
+                "reference": "36702f033486bf1953e254f5299aad205302e79d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/0813f234812d9fa9058b6da39eb13dedc90227db",
-                "reference": "0813f234812d9fa9058b6da39eb13dedc90227db",
+                "url": "https://api.github.com/repos/laminas/laminas-validator/zipball/36702f033486bf1953e254f5299aad205302e79d",
+                "reference": "36702f033486bf1953e254f5299aad205302e79d",
                 "shasum": ""
             },
             "require": {
                 "container-interop/container-interop": "^1.1",
                 "laminas/laminas-stdlib": "^3.2.1",
                 "laminas/laminas-zendframework-bridge": "^1.0",
-                "php": "^5.6 || ^7.0"
+                "php": "^7.1"
             },
             "replace": {
                 "zendframework/zend-validator": "self.version"
@@ -1103,7 +1103,9 @@
                 "laminas/laminas-servicemanager": "^2.7.5 || ^3.0.3",
                 "laminas/laminas-session": "^2.8",
                 "laminas/laminas-uri": "^2.5",
-                "phpunit/phpunit": "^6.0.8 || ^5.7.15",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.2",
+                "psr/http-client": "^1.0",
+                "psr/http-factory": "^1.0",
                 "psr/http-message": "^1.0"
             },
             "suggest": {
@@ -1120,8 +1122,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.12.x-dev",
-                    "dev-develop": "2.13.x-dev"
+                    "dev-master": "2.13.x-dev",
+                    "dev-develop": "2.14.x-dev"
                 },
                 "laminas": {
                     "component": "Laminas\\Validator",
@@ -1143,7 +1145,7 @@
                 "laminas",
                 "validator"
             ],
-            "time": "2019-12-31T17:57:44+00:00"
+            "time": "2020-01-15T09:59:30+00:00"
         },
         {
             "name": "laminas/laminas-view",
@@ -1290,34 +1292,36 @@
         },
         {
             "name": "league/commonmark",
-            "version": "0.15.7",
+            "version": "1.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "36d82f166e441dfa28643f8d01dd8bdd3a579adf"
+                "reference": "34cf4ddb3892c715ae785c880e6691d839cff88d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/36d82f166e441dfa28643f8d01dd8bdd3a579adf",
-                "reference": "36d82f166e441dfa28643f8d01dd8bdd3a579adf",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/34cf4ddb3892c715ae785c880e6691d839cff88d",
+                "reference": "34cf4ddb3892c715ae785c880e6691d839cff88d",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
-                "php": ">=5.4.8"
+                "php": "^7.1"
             },
             "replace": {
                 "colinodell/commonmark-php": "*"
             },
             "require-dev": {
                 "cebe/markdown": "~1.0",
+                "commonmark/commonmark.js": "0.29.1",
                 "erusev/parsedown": "~1.0",
-                "jgm/commonmark": "0.28",
+                "ext-json": "*",
                 "michelf/php-markdown": "~1.4",
-                "mikehaertl/php-shellcommand": "~1.2.0",
-                "phpunit/phpunit": "~4.3|~5.0",
-                "scrutinizer/ocular": "~1.1",
-                "symfony/finder": "~2.3|~3.0"
+                "mikehaertl/php-shellcommand": "^1.4",
+                "phpstan/phpstan-shim": "^0.11.5",
+                "phpunit/phpunit": "^7.5",
+                "scrutinizer/ocular": "^1.5",
+                "symfony/finder": "^4.2"
             },
             "suggest": {
                 "league/commonmark-extras": "Library of useful extensions including smart punctuation"
@@ -1328,12 +1332,12 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "0.16-dev"
+                    "dev-master": "1.3-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "League\\CommonMark\\": "src/"
+                    "League\\CommonMark\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1348,14 +1352,79 @@
                     "role": "Lead Developer"
                 }
             ],
-            "description": "Markdown parser for PHP based on the CommonMark spec",
-            "homepage": "https://github.com/thephpleague/commonmark",
+            "description": "PHP Markdown parser based on the CommonMark spec",
+            "homepage": "https://commonmark.thephpleague.com",
             "keywords": [
                 "commonmark",
                 "markdown",
                 "parser"
             ],
-            "time": "2017-10-26T15:41:07+00:00"
+            "time": "2020-01-16T01:18:13+00:00"
+        },
+        {
+            "name": "league/commonmark-ext-table",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/commonmark-ext-table.git",
+                "reference": "3228888ea69636e855efcf6636ff8e6316933fe7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/commonmark-ext-table/zipball/3228888ea69636e855efcf6636ff8e6316933fe7",
+                "reference": "3228888ea69636e855efcf6636ff8e6316933fe7",
+                "shasum": ""
+            },
+            "require": {
+                "league/commonmark": "~0.19.3|^1.0",
+                "php": "^7.1"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.14",
+                "phpstan/phpstan": "~0.11",
+                "phpunit/phpunit": "^7.0|^8.0",
+                "symfony/var-dumper": "^4.0",
+                "vimeo/psalm": "^3.0"
+            },
+            "type": "commonmark-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\CommonMark\\Ext\\Table\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Martin Hasoň",
+                    "email": "martin.hason@gmail.com"
+                },
+                {
+                    "name": "Webuni s.r.o.",
+                    "homepage": "https://www.webuni.cz"
+                },
+                {
+                    "name": "Colin O'Dell",
+                    "email": "colinodell@gmail.com",
+                    "homepage": "https://www.colinodell.com"
+                }
+            ],
+            "description": "Table extension for league/commonmark",
+            "homepage": "https://github.com/thephpleague/commonmark-ext-table",
+            "keywords": [
+                "commonmark",
+                "extension",
+                "markdown",
+                "table"
+            ],
+            "time": "2019-09-26T13:28:33+00:00"
         },
         {
             "name": "psr/container",
@@ -1475,25 +1544,25 @@
         },
         {
             "name": "symfony/process",
-            "version": "v3.3.6",
+            "version": "v3.4.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/process.git",
-                "reference": "07432804942b9f6dd7b7377faf9920af5f95d70a"
+                "reference": "5b9d2bcffe4678911a4c941c00b7c161252cf09a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/process/zipball/07432804942b9f6dd7b7377faf9920af5f95d70a",
-                "reference": "07432804942b9f6dd7b7377faf9920af5f95d70a",
+                "url": "https://api.github.com/repos/symfony/process/zipball/5b9d2bcffe4678911a4c941c00b7c161252cf09a",
+                "reference": "5b9d2bcffe4678911a4c941c00b7c161252cf09a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -1520,67 +1589,7 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
-            "time": "2017-07-13T13:05:09+00:00"
-        },
-        {
-            "name": "webuni/commonmark-table-extension",
-            "version": "0.6.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/webuni/commonmark-table-extension.git",
-                "reference": "ebbd69b63436283ec726658835b213ec634485e8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/webuni/commonmark-table-extension/zipball/ebbd69b63436283ec726658835b213ec634485e8",
-                "reference": "ebbd69b63436283ec726658835b213ec634485e8",
-                "shasum": ""
-            },
-            "require": {
-                "league/commonmark": "^0.14|^0.15",
-                "php": "^5.5|^7.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^1.9",
-                "phpunit/phpunit": "^4.3|^5.0",
-                "sllh/php-cs-fixer-styleci-bridge": "^2.0",
-                "symfony/var-dumper": "^2.7|^3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.7-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Webuni\\CommonMark\\TableExtension\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Martin Hasoň",
-                    "email": "martin.hason@gmail.com",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Webuni s.r.o.",
-                    "homepage": "https://www.webuni.cz"
-                }
-            ],
-            "description": "The table extension for CommonMark PHP implementation",
-            "homepage": "https://github.com/webuni/commonmark-table-extension",
-            "keywords": [
-                "commonmark",
-                "markdown",
-                "table"
-            ],
-            "abandoned": "league/commonmark-ext-table",
-            "time": "2017-01-11T14:52:17+00:00"
+            "time": "2020-01-01T11:03:25+00:00"
         }
     ],
     "packages-dev": [
@@ -2114,21 +2123,21 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.25.3",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "fa82921994db851a8becaf3787a9e73c5976b6f1"
+                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/fa82921994db851a8becaf3787a9e73c5976b6f1",
-                "reference": "fa82921994db851a8becaf3787a9e73c5976b6f1",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/c861fcba2ca29404dc9e617eedd9eff4616986b8",
+                "reference": "c861fcba2ca29404dc9e617eedd9eff4616986b8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.0",
-                "psr/log": "~1.0"
+                "php": "^7.2",
+                "psr/log": "^1.0.1"
             },
             "provide": {
                 "psr/log-implementation": "1.0.0"
@@ -2136,33 +2145,36 @@
             "require-dev": {
                 "aws/aws-sdk-php": "^2.4.9 || ^3.0",
                 "doctrine/couchdb": "~1.0@dev",
-                "graylog2/gelf-php": "~1.0",
-                "jakub-onderka/php-parallel-lint": "0.9",
+                "elasticsearch/elasticsearch": "^6.0",
+                "graylog2/gelf-php": "^1.4.2",
+                "jakub-onderka/php-parallel-lint": "^0.9",
                 "php-amqplib/php-amqplib": "~2.4",
                 "php-console/php-console": "^3.1.3",
-                "phpunit/phpunit": "~4.5",
-                "phpunit/phpunit-mock-objects": "2.3.0",
+                "phpspec/prophecy": "^1.6.1",
+                "phpunit/phpunit": "^8.3",
+                "predis/predis": "^1.1",
+                "rollbar/rollbar": "^1.3",
                 "ruflin/elastica": ">=0.90 <3.0",
-                "sentry/sentry": "^0.13",
                 "swiftmailer/swiftmailer": "^5.3|^6.0"
             },
             "suggest": {
                 "aws/aws-sdk-php": "Allow sending log messages to AWS services like DynamoDB",
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
+                "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
-                "ext-mongo": "Allow sending log messages to a MongoDB server",
+                "ext-mbstring": "Allow to work properly with unicode symbols",
+                "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
-                "mongodb/mongodb": "Allow sending log messages to a MongoDB server via PHP Driver",
+                "mongodb/mongodb": "Allow sending log messages to a MongoDB server (via library)",
                 "php-amqplib/php-amqplib": "Allow sending log messages to an AMQP server using php-amqplib",
                 "php-console/php-console": "Allow sending log messages to Google Chrome",
                 "rollbar/rollbar": "Allow sending log messages to Rollbar",
-                "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
-                "sentry/sentry": "Allow sending log messages to a Sentry server"
+                "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -2188,7 +2200,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2019-12-20T14:15:16+00:00"
+            "time": "2019-12-20T14:22:59+00:00"
         },
         {
             "name": "phpseclib/phpseclib",
@@ -2552,10 +2564,10 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.0"
+        "php": "^7.2"
     },
     "platform-dev": [],
     "platform-overrides": {
-        "php": "7.0"
+        "php": "7.2"
     }
 }

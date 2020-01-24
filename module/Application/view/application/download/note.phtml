@@ -1,4 +1,14 @@
-<?php $parser = new \League\CommonMark\CommonMarkConverter() ?>
+<?php
+use League\CommonMark\Converter;
+use League\CommonMark\DocParser;
+use League\CommonMark\Environment;
+use League\CommonMark\Ext\Table\TableExtension;
+use League\CommonMark\HtmlRenderer;
+
+$environment = Environment::createCommonMarkEnvironment();
+$environment->addExtension(new TableExtension());
+$parser = new Converter(new DocParser($environment), new HtmlRenderer($environment));
+?>
 <section class="docs row flex-xl-nowrap">
     <?= $this->partial('layout/aside', [
         'aside'   => $this->aside,

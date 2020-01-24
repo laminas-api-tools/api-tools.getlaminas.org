@@ -13,7 +13,7 @@
     "config": {
         "sort-packages": true,
         "platform": {
-            "php": "7.0"
+            "php": "7.2"
         }
     },
     "repositories": [
@@ -23,10 +23,10 @@
         }
     ],
     "require": {
-        "php": "^7.0",
-        "league/commonmark": "^0.15.7",
+        "php": "^7.2",
+        "league/commonmark": "^1.2.2",
         "rwoverdijk/assetmanager": "^1.7.3",
-        "webuni/commonmark-table-extension": "^0.6.1",
+        "league/commonmark-ext-table": "^2.1.0",
         "laminas/laminas-filter": "^2.7.2",
         "laminas/laminas-mvc": "^3.1",
         "laminas/laminas-navigation": "^2.8.2",
