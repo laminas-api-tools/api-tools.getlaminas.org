@@ -1,4 +1,16 @@
 <?php
+
+use Application\Controller\ContactsController;
+use Application\Controller\DownloadController;
+use Application\Controller\DownloadControllerFactory;
+use Application\Controller\HomeController;
+use Application\Controller\HomeControllerFactory;
+use Application\Controller\VideoController;
+use Application\GithubReleases;
+use Application\GithubReleasesFactory;
+use Laminas\Navigation\Service\DefaultNavigationFactory;
+use Laminas\ServiceManager\Factory\InvokableFactory;
+
 return [
     'router' => [
         'routes' => [
@@ -7,7 +19,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => 'Application\Controller\Home',
+                        'controller' => HomeController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -17,7 +29,7 @@ return [
                 'options' => [
                     'route'    => '/video',
                     'defaults' => [
-                        'controller' => 'Application\Controller\Video',
+                        'controller' => VideoController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -27,7 +39,7 @@ return [
                 'options' => [
                     'route'    => '/download',
                     'defaults' => [
-                        'controller' => 'Application\Controller\Download',
+                        'controller' => DownloadController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -38,7 +50,7 @@ return [
                         'options' => [
                             'route' => '/note',
                             'defaults' => [
-                                'controller' => 'Application\Controller\Download',
+                                'controller' => DownloadController::class,
                                 'action'     => 'note',
                             ],
                         ],
@@ -49,7 +61,7 @@ return [
                                 'options' => [
                                     'route' => '/[:release]',
                                     'defaults' => [
-                                        'controller' => 'Application\Controller\Download',
+                                        'controller' => DownloadController::class,
                                         'action'     => 'note'
                                     ],
                                     'constraints' => [
@@ -66,7 +78,7 @@ return [
                 'options' => [
                     'route'    => '/contacts',
                     'defaults' => [
-                        'controller' => 'Application\Controller\Contacts',
+                        'controller' => ContactsController::class,
                         'action'     => 'index',
                     ],
                 ],
@@ -118,13 +130,16 @@ return [
             'translator' => 'MvcTranslator',
         ],
         'factories' => [
-            'navigation' => 'Laminas\Navigation\Service\DefaultNavigationFactory',
+            'navigation'          => DefaultNavigationFactory::class,
+            GithubReleases::class => GithubReleasesFactory::class,
         ],
     ],
     'controllers' => [
-        'invokables' => [
-            'Application\Controller\Video' => 'Application\Controller\VideoController',
-            'Application\Controller\Contacts' => 'Application\Controller\ContactsController',
+        'factories' => [
+            ContactsController::class => InvokableFactory::class,
+            DownloadController::class => DownloadControllerFactory::class,
+            HomeController::class     => HomeControllerFactory::class,
+            VideoController::class    => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
@@ -141,13 +156,6 @@ return [
         ],
         'template_path_stack' => [
             __DIR__ . '/../view',
-        ],
-    ],
-    // Placeholder for console routes
-    'console' => [
-        'router' => [
-            'routes' => [
-            ],
         ],
     ],
 ];

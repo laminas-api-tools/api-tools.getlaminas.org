@@ -7,60 +7,10 @@
 
 namespace Application;
 
-use Laminas\Mvc\MvcEvent;
-use Laminas\ServiceManager\AbstractPluginManager;
-
 class Module
 {
-    public function onBootstrap(MvcEvent $e)
-    {
-        $serviceManager = $e->getApplication()->getServiceManager();
-        $viewModel = $e->getApplication()->getMvcEvent()->getViewModel();
-        $config = $serviceManager->get('config');
-        $viewModel->forkme = $config['links']['forkme'];
-    }
-
     public function getConfig()
     {
         return include __DIR__ . '/../config/module.config.php';
-    }
-
-    public function getServiceConfig()
-    {
-        return ['factories' => [
-            GithubReleases::class => function () {
-                $releases = [];
-                if (file_exists('data/releases.json')) {
-                    $json     = file_get_contents('data/releases.json');
-                    $releases = json_decode($json, true);
-                }
-                return new GithubReleases($releases);
-            },
-        ]];
-    }
-
-    public function getControllerConfig()
-    {
-        return ['factories' => [
-            'Application\Controller\Download' => function ($services) {
-                if ($services instanceof AbstractPluginManager) {
-                    $services = $services->getServiceLocator() ?: $services;
-                }
-
-                $controller = new Controller\DownloadController(
-                    $services->get(GithubReleases::class)
-                );
-
-                return $controller;
-            },
-            'Application\Controller\Home' => function ($services) {
-                if ($services instanceof AbstractPluginManager) {
-                    $services = $services->getServiceLocator() ?: $services;
-                }
-                return new Controller\HomeController(
-                    $services->get('config')
-                );
-            },
-        ]];
     }
 }

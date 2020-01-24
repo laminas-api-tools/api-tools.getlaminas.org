@@ -2,6 +2,15 @@
 <?php
 chdir(__DIR__ . '/../');
 
+// Constants
+
+const RELEASES_TEMPLATE = <<< END
+<?php
+return [
+    'api-tools-releases' => %s,
+];
+END;
+
 // Functions
 
 function getTags($curl, string $credentials)
@@ -91,5 +100,7 @@ $tags = getTags($curl, $credentials);
 // Close curl handle
 curl_close($curl);
 
-file_put_contents('data/releases.json', json_encode($tags, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_SLASHES));
+$releases = sprintf(RELEASES_TEMPLATE, var_export($tags, true));
+
+file_put_contents('config/autoload/releases.global.php', $releases);
 file_put_contents('php://stdout', "[DONE] Fetched releases from GitHub!\n");
