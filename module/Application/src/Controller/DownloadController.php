@@ -34,9 +34,14 @@ class DownloadController extends AbstractActionController
             'Previous Releases' => [],
         ];
         foreach ($this->releases as $release) {
-            $aside['Previous Releases'][$release['name']] = $this->url()->fromRoute('download/note/for-release', ['release' => $release['name']]);
+            $aside['Previous Releases'][$release['name']] = $this->url()->fromRoute(
+                'download/note/for-release',
+                ['release' => $release['name']]
+            );
         }
-        $aside['Previous Releases']['All releases'] = 'https://github.com/laminas-api-tools/api-tools-skeleton/releases';
+        $aside['Previous Releases']['All releases']
+            = 'https://github.com/laminas-api-tools/api-tools-skeleton/releases';
+
         return $aside;
     }
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env php
 <?php
+
 chdir(__DIR__ . '/../');
 
 // Constants
@@ -23,7 +24,10 @@ function getTags($curl, string $credentials)
     $tagData = json_decode($result);
 
     if (! is_array($tagData)) {
-        printf("[ERROR] Did not receive expected result when fetching tags\nReceived:\n%s\n", var_export($tagData, true));
+        printf(
+            "[ERROR] Did not receive expected result when fetching tags\nReceived:\n%s\n",
+            var_export($tagData, true)
+        );
         exit(1);
     }
 

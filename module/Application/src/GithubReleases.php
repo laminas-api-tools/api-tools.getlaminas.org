@@ -37,7 +37,7 @@ class GithubReleases implements Countable, IteratorAggregate
         return count($this->releases);
     }
 
-    public function current() : ?array
+    public function current(): ?array
     {
         error_log(sprintf('In %s', __METHOD__));
         if (0 === count($this)) {

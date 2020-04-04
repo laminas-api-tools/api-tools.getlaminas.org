@@ -22,7 +22,7 @@
                 $reasonMessage = 'We cannot determine at this time why a 404 was generated.';
                 break;
         }
-    
+
         printf('<p>%s</p>', $reasonMessage);
     }
     ?>
@@ -33,9 +33,7 @@
         <dt>Controller:</dt>
         <dd><?= $this->escapeHtml($this->controller) ?>
         <?php
-        if (isset($this->controller_class)
-            && $this->controller_class != $this->controller
-        ) {
+        if (isset($this->controller_class) && $this->controller_class !== $this->controller) {
             echo '(' . sprintf('resolves to %s', $this->escapeHtml($this->controller_class)) . ')';
         }
         ?>
@@ -46,7 +44,7 @@
     
     <?php if (isset($this->display_exceptions)) : ?>
     
-        <?php if (isset($this->exception) && $this->exception instanceof Exception) : ?>
+        <?php if (isset($this->exception) && $this->exception instanceof Throwable) : ?>
     <hr/>
     <h2>Additional information:</h2>
     <h3><?= get_class($this->exception) ?></h3>

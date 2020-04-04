@@ -1,10 +1,10 @@
-version: '2'
+version: '3.3'
 
 services:
   fpm:
-    image: php:7.2-fpm
-    volumes_from:
-      - source
+    image: php:7.3-fpm
+    volumes:
+      - .:/var/vhosts/api-tools.getlaminas.org
   
   nginx:
     build:
@@ -14,10 +14,5 @@ services:
       - "8080:80"
     links:
       - fpm
-    volumes_from:
-      - source
-
-  source:
-    image: busybox
     volumes:
       - .:/var/vhosts/api-tools.getlaminas.org

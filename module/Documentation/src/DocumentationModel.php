@@ -29,7 +29,8 @@ class DocumentationModel
      */
     public function hasPage($page)
     {
-        if (! isset($this->config['path'])
+        if (
+            ! isset($this->config['path'])
             || ! is_dir($this->config['path'])
         ) {
             return false;

@@ -11,10 +11,7 @@
     "homepage": "https://api-tools.getlaminas.org",
     "license": "BSD-3-Clause",
     "config": {
-        "sort-packages": true,
-        "platform": {
-            "php": "7.2"
-        }
+        "sort-packages": true
     },
     "repositories": [
         {
@@ -23,21 +20,22 @@
         }
     ],
     "require": {
-        "php": "^7.2",
-        "league/commonmark": "^1.2.2",
-        "rwoverdijk/assetmanager": "^1.7.3",
-        "league/commonmark-ext-table": "^2.1.0",
-        "laminas/laminas-filter": "^2.7.2",
-        "laminas/laminas-mvc": "^3.1",
-        "laminas/laminas-navigation": "^2.8.2",
+        "php": "~7.3",
         "laminas-api-tools/documentation": "dev-master",
-        "laminas/laminas-dependency-plugin": "^1.0"
+        "laminas/laminas-dependency-plugin": "^1.0.3",
+        "laminas/laminas-filter": "^2.9.4",
+        "laminas/laminas-mvc": "^3.1.1",
+        "laminas/laminas-navigation": "^2.9.1",
+        "league/commonmark": "^1.3.2",
+        "league/commonmark-ext-table": "^2.1",
+        "rwoverdijk/assetmanager": "^1.8.1"
     },
     "require-dev": {
-        "google/apiclient": "^2.2",
-        "laminas/laminas-coding-standard": "~1.0.0",
-        "laminas/laminas-console": "^2.6",
-        "laminas/laminas-development-mode": "^3.1"
+        "google/apiclient": "^2.4.1",
+        "laminas/laminas-console": "^2.8",
+        "laminas/laminas-development-mode": "^3.2",
+        "roave/security-advisories": "dev-master",
+        "squizlabs/php_codesniffer": "^3.5.4"
     },
     "autoload": {
         "psr-4": {

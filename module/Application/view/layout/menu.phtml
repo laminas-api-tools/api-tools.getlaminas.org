@@ -1,5 +1,7 @@
 <ul class="navbar-nav ml-auto">
-<?php foreach ($this->container as $page) : ?>
+<?php
+
+foreach ($this->container as $page) : ?>
     <li class="nav-item<?= $page->isActive(true) ? ' active' : '' ?>">
         <a class="nav-link text-white" href="<?= $page->getHref() ?>"><?= $page->label ?></a>
     </li>

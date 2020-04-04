@@ -12,12 +12,13 @@
             ->headLink([
                 'rel' => 'shortcut icon',
                 'type' => 'image/vnd.microsoft.icon',
-                'href' => $this->basePath() . '/img/favicon.ico'
+                'href' => $this->basePath() . '/img/trademark-laminas-foundation-rgb.svg'
             ])
             ->appendStylesheet($this->basePath('/') . 'css/styles.min.css')
     ?>
 
     <?php
+
         $this->inlineScript()
             ->prependFile($this->basePath('/') . 'js/scripts.min.js')
     ?>
@@ -84,7 +85,7 @@
     </header>
 
     <div class="container content">
-    <?= $this->content ?>
+        <?= $this->content ?>
     </div>
 
     <footer class="footer">
