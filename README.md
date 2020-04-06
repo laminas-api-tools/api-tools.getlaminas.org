@@ -41,4 +41,4 @@ The above commands are run automatically when you execute `composer build`.
 
 Documentation is written in a separate repository,
 [laminas-api-tools/documentation](https://github.com/laminas-api-tools/documentation),
-and the api-tools.getlaminas.org website consumes that documentation.
+and the https://api-tools.getlaminas.org website consumes that documentation.
