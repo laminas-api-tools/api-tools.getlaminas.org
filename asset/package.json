@@ -1,13 +1,13 @@
 {
     "name": "api-tools.getlaminas.org",
-    "version": "0.0.1",
+    "version": "1.0.0",
     "description": "website",
     "license": "CC By 4.0",
     "dependencies": {
         "@babel/core": "^7.9.0",
-        "@babel/preset-env": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
         "anchor-js": "^4.2.2",
-        "autoprefixer": "^9.7.5",
+        "autoprefixer": "^9.7.6",
         "bootstrap": "^4.4.1",
         "font-awesome": "^4.7.0",
         "gulp": "^4.0.2",
@@ -22,7 +22,7 @@
         "gulp-sourcemaps": "^2.6.5",
         "gulp-terser": "^1.2.0",
         "gulp-uglify": "^3.0.2",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "popper.js": "^1.16.1",
         "prismjs": "^1.20.0"
     }
