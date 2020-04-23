@@ -121,12 +121,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas-api-tools/documentation.git",
-                "reference": "59096fdb1bdf6520190bc0699233d3301dffa7b8"
+                "reference": "54d980d978be564fb8c47de9acae0e77bd9e3d83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas-api-tools/documentation/zipball/59096fdb1bdf6520190bc0699233d3301dffa7b8",
-                "reference": "59096fdb1bdf6520190bc0699233d3301dffa7b8",
+                "url": "https://api.github.com/repos/laminas-api-tools/documentation/zipball/54d980d978be564fb8c47de9acae0e77bd9e3d83",
+                "reference": "54d980d978be564fb8c47de9acae0e77bd9e3d83",
                 "shasum": ""
             },
             "require": {
@@ -167,7 +167,7 @@
                     "url": "https://funding.communitybridge.org/projects/laminas-project"
                 }
             ],
-            "time": "2020-03-31T14:05:21+00:00"
+            "time": "2020-04-23T21:01:31+00:00"
         },
         {
             "name": "laminas/laminas-config",
@@ -1444,6 +1444,7 @@
                 "markdown",
                 "table"
             ],
+            "abandoned": "league/commonmark",
             "time": "2019-09-26T13:28:33+00:00"
         },
         {
