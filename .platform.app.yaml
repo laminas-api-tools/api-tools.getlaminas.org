@@ -9,6 +9,11 @@ disk: 256
 build:
   flavor: none
 
+variables:
+  env:
+      NVM_VERSION: v0.35.3
+      NODE_VERSION: 10
+
 dependencies:
   php:
     "hirak/prestissimo": "^0.3.10"
@@ -23,6 +28,12 @@ mounts:
 hooks:
   build: |
     set -e
+    unset NPM_CONFIG_PREFIX
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/$NVM_VERSION/install.sh | dash
+    export NVM_DIR="$PLATFORM_APP_DIR/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+    nvm current
+    nvm install $NODE_VERSION
     echo "Installing platform.sh CLI"
     curl -sS https://platform.sh/cli/installer | php
     echo "- Installing asset dependencies"
