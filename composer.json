@@ -10,15 +10,6 @@
     ],
     "homepage": "https://api-tools.getlaminas.org",
     "license": "BSD-3-Clause",
-    "config": {
-        "sort-packages": true
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/laminas-api-tools/documentation.git"
-        }
-    ],
     "require": {
         "php": "~7.3",
         "laminas-api-tools/documentation": "dev-master",
@@ -37,12 +28,21 @@
         "roave/security-advisories": "dev-master",
         "squizlabs/php_codesniffer": "^3.5.4"
     },
+    "config": {
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
             "Application\\": "module/Application/src/",
             "Documentation\\": "module/Documentation/src/"
         }
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/laminas-api-tools/documentation.git"
+        }
+    ],
     "scripts": {
         "build": [
             "composer update laminas-api-tools/documentation",
