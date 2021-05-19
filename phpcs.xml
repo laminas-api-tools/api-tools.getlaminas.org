@@ -17,7 +17,6 @@
     </rule>
 
     <!-- Paths to check -->
-    <file>bin</file>
     <file>config</file>
     <file>module</file>
     <file>public/index.php</file>
