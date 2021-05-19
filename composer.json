@@ -49,7 +49,7 @@
     "scripts": {
         "build": [
             "composer update laminas-api-tools/documentation",
-            "@php ./bin/get-releases.php",
+            "laminas get-releases",
             "cd asset && npm install --no-save && gulp && rm -Rf node_modules",
             "rm -f data/cache/module-classmap-cache.php",
             "rm -f data/cache/module-config-cache.php"
