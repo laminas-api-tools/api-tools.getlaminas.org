@@ -11,6 +11,9 @@
     "homepage": "https://api-tools.getlaminas.org",
     "license": "BSD-3-Clause",
     "config": {
+        "platform": {
+            "php": "7.3"
+        },
         "sort-packages": true
     },
     "repositories": [
@@ -22,7 +25,7 @@
     "require": {
         "php": "~7.3",
         "laminas-api-tools/documentation": "dev-master",
-        "laminas/laminas-dependency-plugin": "^1.0.3",
+        "laminas/laminas-dependency-plugin": "^2.0",
         "laminas/laminas-filter": "^2.9.4",
         "laminas/laminas-mvc": "^3.1.1",
         "laminas/laminas-navigation": "^2.9.1",
@@ -32,7 +35,7 @@
     },
     "require-dev": {
         "google/apiclient": "^2.4.1",
-        "laminas/laminas-console": "^2.8",
+        "laminas/laminas-cli": "~1.0.0",
         "laminas/laminas-development-mode": "^3.2",
         "roave/security-advisories": "dev-master",
         "squizlabs/php_codesniffer": "^3.5.4"
