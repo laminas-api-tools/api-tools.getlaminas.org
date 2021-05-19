@@ -17,10 +17,10 @@
     </rule>
 
     <!-- Paths to check -->
-    <file>bin</file>
     <file>config</file>
     <file>module</file>
     <file>public/index.php</file>
+    <exclude-pattern>config/autoload/releases.global.php</exclude-pattern>
     <exclude-pattern>module/Application/view/application/contacts/index.phtml</exclude-pattern>
     <exclude-pattern>module/Application/view/application/video/index.phtml</exclude-pattern>
     <exclude-pattern>module/Documentation/view/documentation/disclaimer.phtml</exclude-pattern>
