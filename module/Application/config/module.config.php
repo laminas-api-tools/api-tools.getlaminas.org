@@ -1,5 +1,6 @@
 <?php
 
+use Application\Command\GetReleasesCommand;
 use Application\Command\YoutubeCommand;
 use Application\Controller\ContactsController;
 use Application\Controller\DownloadController;
@@ -15,7 +16,8 @@ use Laminas\ServiceManager\Factory\InvokableFactory;
 return [
     'laminas-cli' => [
         'commands' => [
-            'youtube' => YoutubeCommand::class,
+            'get-releases' => GetReleasesCommand::class,
+            'youtube'      => YoutubeCommand::class,
         ],
     ],
     'router' => [
@@ -136,7 +138,8 @@ return [
             'translator' => 'MvcTranslator',
         ],
         'invokables' => [
-            YoutubeCommand::class => YoutubeCommand::class,
+            GetReleasesCommand::class => GetReleasesCommand::class,
+            YoutubeCommand::class     => YoutubeCommand::class,
         ],
         'factories' => [
             'navigation'          => DefaultNavigationFactory::class,

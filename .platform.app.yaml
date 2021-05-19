@@ -11,12 +11,12 @@ build:
 
 variables:
   env:
-      NVM_VERSION: v0.35.3
-      NODE_VERSION: 10
+      NVM_VERSION: v0.36.0
+      NODE_VERSION: v14.13.1
 
 dependencies:
   php:
-    "hirak/prestissimo": "^0.3.10"
+    composer/composer: '^2'
   nodejs:
     gulp-cli: '~2.2.0'
 
@@ -48,7 +48,7 @@ hooks:
     echo "- Installing application dependencies"
     composer install --no-ansi --no-dev --no-interaction --no-scripts --no-plugins --optimize-autoloader
     composer update laminas-api-tools/documentation
-    php bin/get-releases.php
+    php vendor/bin/laminas get-releases
   deploy: |
     rm -f data/cache/module-*.php
 

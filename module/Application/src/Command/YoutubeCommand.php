@@ -34,6 +34,7 @@ class YoutubeCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        $output->writeln('<info>Fetching video playlist from YouTube...</info>');
         $client = new Google_Client();
         $client->setDeveloperKey($input->getArgument('key'));
         $youtubeService = new Google_Service_YouTube($client);
@@ -48,6 +49,7 @@ class YoutubeCommand extends Command
         $videoPath = __DIR__ . '/../../view/application/video';
         $videos    = [];
 
+        $output->writeln('<info>...writing items to template</info>');
         foreach ($playlistItemsResponse['items'] as $playlistItem) {
             $thumbnails = [
                 'small' => $playlistItem['snippet']['thumbnails']->getMedium(),
@@ -83,5 +85,9 @@ class YoutubeCommand extends Command
         $html = $renderer->render($model);
 
         file_put_contents($videoPath . '/index.phtml', $html);
+
+        $output->writeln('<info>[DONE] Fetched video playlist from YouTube!</info>');
+
+        return 0;
     }
 }
