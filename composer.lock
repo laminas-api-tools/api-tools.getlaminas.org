@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ed60495a2be571b0c763b755db16ec90",
+    "content-hash": "d9f5e2baf64061e214ff77e06411857c",
     "packages": [
         {
             "name": "brick/varexporter",
@@ -2507,16 +2507,16 @@
         },
         {
             "name": "laminas/laminas-cli",
-            "version": "1.0.2",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laminas/laminas-cli.git",
-                "reference": "2b33cb5bf1b6b72e84a33f11c40ca4c7b7d7b2ef"
+                "reference": "875a174c161c84c84c43bdff1e10cfe4ecbda704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laminas/laminas-cli/zipball/2b33cb5bf1b6b72e84a33f11c40ca4c7b7d7b2ef",
-                "reference": "2b33cb5bf1b6b72e84a33f11c40ca4c7b7d7b2ef",
+                "url": "https://api.github.com/repos/laminas/laminas-cli/zipball/875a174c161c84c84c43bdff1e10cfe4ecbda704",
+                "reference": "875a174c161c84c84c43bdff1e10cfe4ecbda704",
                 "shasum": ""
             },
             "require": {
@@ -2532,6 +2532,7 @@
                 "laminas/laminas-coding-standard": "~2.0.0",
                 "laminas/laminas-mvc": "^3.1.1",
                 "laminas/laminas-servicemanager": "^3.4",
+                "mikey179/vfsstream": "2.0.x-dev",
                 "phpunit/phpunit": "^9.4.1",
                 "vimeo/psalm": "^4.4.1"
             },
@@ -2578,7 +2579,7 @@
                     "type": "community_bridge"
                 }
             ],
-            "time": "2021-02-26T17:15:07+00:00"
+            "time": "2021-05-20T17:32:19+00:00"
         },
         {
             "name": "laminas/laminas-development-mode",
@@ -3218,12 +3219,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "d58c720daf8468a2439d3020e73b03a92e1fcf55"
+                "reference": "6e52ab3a11a0d4fb0d9b2fb199a5887b8e01b1ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/d58c720daf8468a2439d3020e73b03a92e1fcf55",
-                "reference": "d58c720daf8468a2439d3020e73b03a92e1fcf55",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/6e52ab3a11a0d4fb0d9b2fb199a5887b8e01b1ae",
+                "reference": "6e52ab3a11a0d4fb0d9b2fb199a5887b8e01b1ae",
                 "shasum": ""
             },
             "conflict": {
@@ -3496,6 +3497,7 @@
                 "wallabag/tcpdf": "<6.2.22",
                 "wikimedia/parsoid": "<0.12.2",
                 "willdurand/js-translation-bundle": "<2.1.1",
+                "wp-cli/wp-cli": "<2.5",
                 "yii2mod/yii2-cms": "<1.9.2",
                 "yiisoft/yii": ">=1.1.14,<1.1.15",
                 "yiisoft/yii2": "<2.0.38",
@@ -3566,7 +3568,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-05-19T13:19:49+00:00"
+            "time": "2021-05-20T18:43:44+00:00"
         },
         {
             "name": "squizlabs/php_codesniffer",

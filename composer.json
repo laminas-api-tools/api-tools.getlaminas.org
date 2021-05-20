@@ -35,7 +35,7 @@
     },
     "require-dev": {
         "google/apiclient": "^2.4.1",
-        "laminas/laminas-cli": "~1.0.0",
+        "laminas/laminas-cli": "^1.1.1",
         "laminas/laminas-development-mode": "^3.2",
         "roave/security-advisories": "dev-master",
         "squizlabs/php_codesniffer": "^3.5.4"
