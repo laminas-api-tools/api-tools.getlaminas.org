@@ -16,7 +16,7 @@
         },
         "sort-packages": true,
         "allow-plugins": {
-            "laminas/laminas-dependency-plugin": true
+            "laminas/laminas-dependency-plugin": false
         }
     },
     "repositories": [
@@ -28,7 +28,6 @@
     "require": {
         "php": "~8.1.0",
         "laminas-api-tools/documentation": "dev-master",
-        "laminas/laminas-dependency-plugin": "^2.0",
         "laminas/laminas-filter": "^2.9.4",
         "laminas/laminas-mvc": "^3.1.1",
         "laminas/laminas-navigation": "^2.9.1",
