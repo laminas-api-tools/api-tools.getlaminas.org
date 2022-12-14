@@ -15,8 +15,6 @@ variables:
       NODE_VERSION: v14.13.1
 
 dependencies:
-  php:
-    composer/composer: '^2'
   nodejs:
     gulp-cli: '~2.2.0'
 
@@ -42,14 +40,18 @@ hooks:
     (cd asset ; gulp default)
     echo "- Removing asset dependencies"
     (cd asset ; rm -rf node_modules)
-    echo "- Reverting Composer to 2.2"
-    composer self-update --2.2
+    echo "- Installing Composer 2.2"
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('sha384', 'composer-setup.php') === '55ce33d7678c5a611085589f1f3ddf8b3c52d662cd01d4ba75c0ee0459970c2200a51f492d557530c71c15d8dba01eae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php composer-setup.php --2.2 --filename=composer
+    php -r "unlink('composer-setup.php');"
+    chmod +x composer
     echo "- Setting up configuration"
     rm -f config/development.config.php config/autoload/*.local.php
     mv config/autoload/local.php.dist config/autoload/local.php
     echo "- Installing application dependencies"
-    composer install --no-ansi --no-dev --no-interaction --no-scripts --no-plugins --optimize-autoloader
-    composer update laminas-api-tools/documentation
+    ./composer install --no-ansi --no-dev --no-interaction --no-scripts --no-plugins --optimize-autoloader
+    ./composer update laminas-api-tools/documentation
     php vendor/bin/laminas get-releases
   deploy: |
     rm -f data/cache/module-*.php
