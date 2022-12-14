@@ -9,14 +9,16 @@
 namespace Documentation;
 
 use League\CommonMark\Converter;
-use League\CommonMark\DocParser;
-use League\CommonMark\Environment;
-use League\CommonMark\Ext\Table\TableExtension;
-use League\CommonMark\HtmlRenderer;
 use Laminas\Filter\FilterChain;
 use Laminas\View\Helper\HelperInterface;
 use Laminas\View\Helper\Url as UrlHelper;
 use Laminas\View\Renderer\RendererInterface;
+use League\CommonMark\ConverterInterface;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\GithubFlavoredMarkdownExtension;
+use League\CommonMark\Extension\Table\TableExtension;
+use League\CommonMark\MarkdownConverter;
 
 class MarkdownPageHelper implements HelperInterface
 {
@@ -26,7 +28,7 @@ class MarkdownPageHelper implements HelperInterface
     protected $anchorFilterChain;
 
     /**
-     * @var Converter
+     * @var ConverterInterface
      */
     protected $parser;
 
@@ -40,10 +42,12 @@ class MarkdownPageHelper implements HelperInterface
      */
     public function __construct(UrlHelper $url)
     {
-        $environment = Environment::createCommonMarkEnvironment();
+        $environment = new Environment([]);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new GithubFlavoredMarkdownExtension());
         $environment->addExtension(new TableExtension());
 
-        $this->parser = new Converter(new DocParser($environment), new HtmlRenderer($environment));
+        $this->parser = new MarkdownConverter($environment);
         $this->url    = $url;
     }
 
@@ -61,7 +65,7 @@ class MarkdownPageHelper implements HelperInterface
         $contents = $model->getPageContents($page);
 
         // transform markdown to HTML
-        $html = $this->parser->convertToHtml($contents);
+        $html = $this->parser->convert($contents);
 
         // transform language-HTTP to language-http
         $html = str_replace('language-HTTP', 'language-http', $html);
