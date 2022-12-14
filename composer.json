@@ -12,9 +12,12 @@
     "license": "BSD-3-Clause",
     "config": {
         "platform": {
-            "php": "7.3"
+            "php": "8.1"
         },
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "laminas/laminas-dependency-plugin": true
+        }
     },
     "repositories": [
         {
@@ -23,15 +26,14 @@
         }
     ],
     "require": {
-        "php": "~7.3",
+        "php": "~8.1.0",
         "laminas-api-tools/documentation": "dev-master",
         "laminas/laminas-dependency-plugin": "^2.0",
         "laminas/laminas-filter": "^2.9.4",
         "laminas/laminas-mvc": "^3.1.1",
         "laminas/laminas-navigation": "^2.9.1",
-        "league/commonmark": "^1.3.2",
-        "league/commonmark-ext-table": "^2.1",
-        "rwoverdijk/assetmanager": "^1.8.1"
+        "league/commonmark": "^2.3",
+        "rwoverdijk/assetmanager": "^3.0"
     },
     "require-dev": {
         "google/apiclient": "^2.4.1",
