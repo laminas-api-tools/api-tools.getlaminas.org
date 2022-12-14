@@ -42,6 +42,8 @@ hooks:
     (cd asset ; gulp default)
     echo "- Removing asset dependencies"
     (cd asset ; rm -rf node_modules)
+    echo "- Reverting Composer to 2.2"
+    composer self-update --2.2
     echo "- Setting up configuration"
     rm -f config/development.config.php config/autoload/*.local.php
     mv config/autoload/local.php.dist config/autoload/local.php
