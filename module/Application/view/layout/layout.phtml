@@ -6,13 +6,37 @@
     <?= $this->headMeta()
             ->appendName('viewport', 'width=device-width, initial-scale=1.0')
             ->appendName('description', 'Laminas API Tools: Quickly build and deploy high quality APIs')
-            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge') ?>
+            ->appendName('msapplication-TileColor', '#da532c')
+            ->appendName('sapplication-config', 'https://getlaminas.org/images/favicon/api-tools/browserconfig.xml')
+            ->appendName('theme-color', '#ffffff')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+    ?>
 
     <?= $this
             ->headLink([
+                'rel' => 'apple-touch-icon',
+                'sizes' => '180x180',
+                'href' => $this->basePath() . 'https://getlaminas.org/images/favicon/api-tools/apple-touch-icon.png'
+            ])
+            ->headLink([
+                'rel' => 'icon',
+                'type' => 'image/png',
+                'sizes' => '32x32',
+                'href' => $this->basePath() . 'https://getlaminas.org/images/favicon/api-tools/favicon-32x32.png'
+            ])
+            ->headLink([
+                'rel' => 'icon',
+                'type' => 'image/png',
+                'sizes' => '16x16',
+                'href' => $this->basePath() . 'https://getlaminas.org/images/favicon/api-tools/favicon-16x16.png'
+            ])
+            ->headLink([
+                'rel' => 'manifest',
+                'href' => $this->basePath() . 'https://getlaminas.org/images/favicon/api-tools/site.webmanifest'
+            ])
+            ->headLink([
                 'rel' => 'shortcut icon',
-                'type' => 'image/vnd.microsoft.icon',
-                'href' => $this->basePath() . '/img/trademark-laminas-api-tools.svg'
+                'href' => $this->basePath() . 'https://getlaminas.org/images/favicon/api-tools/favicon.ico'
             ])
             ->appendStylesheet($this->basePath('/') . 'css/styles.min.css')
     ?>
