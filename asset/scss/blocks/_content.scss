@@ -57,6 +57,14 @@
         font-weight: $lower-headings-font-weight;
     }
 
+    #security-notice {
+        width: 100%;
+
+        h1 {
+            font-size: 2.5rem;
+        }
+    }
+
     /*p {
         max-width: 80%;
     }*/
