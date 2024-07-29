@@ -16,3 +16,18 @@
 		background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
     }
 }
+
+#security-only-notice {
+    padding: 10pt 0;
+    background-color: #ff9102;
+    margin-bottom: map_get($spacers, 5);
+
+    p {
+        margin: 0 auto;
+        padding: 0 15px;
+
+        @media only screen and (min-width: 576px) and (max-width: 1000px) {
+            padding: 0;
+        }
+    }
+}
